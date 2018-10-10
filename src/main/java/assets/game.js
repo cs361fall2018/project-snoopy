@@ -54,7 +54,7 @@ function registerCellListener(f) {
         for (j=0; j<10; j++) {
             let cell = el.rows[i].cells[j];
             cell.removeEventListener("mouseover", oldListener);
-            cell.removeEventListener("mouseout", oldListener);
+            cell.re moveEventListener("mouseout", oldListener);
             cell.addEventListener("mouseover", f);
             cell.addEventListener("mouseout", f);
         }
@@ -63,8 +63,8 @@ function registerCellListener(f) {
 }
 
 function cellClick() {
-    let row = this.parentNode.rowIndex;
-    let col = this.cellIndex;
+    let row = this.parentNode.rowIndex + 1;
+    let col = String.fromCharCode(this.cellIndex + 65);
     if (isSetup) {
         sendXhr("POST", "/place", {game: game, shipType: shipType, x: row, y: col, isVertical: vertical}, function(data) {
             game = data;
