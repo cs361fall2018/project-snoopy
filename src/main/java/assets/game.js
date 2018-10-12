@@ -54,7 +54,7 @@ function registerCellListener(f) {
         for (j=0; j<10; j++) {
             let cell = el.rows[i].cells[j];
             cell.removeEventListener("mouseover", oldListener);
-            cell.re moveEventListener("mouseout", oldListener);
+            cell.removeEventListener("mouseout", oldListener);
             cell.addEventListener("mouseover", f);
             cell.addEventListener("mouseout", f);
         }
